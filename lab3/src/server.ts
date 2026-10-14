@@ -65,12 +65,12 @@ function generateOutput(): string {
     return output;
 }
 
-const PORT = 3000;
-const server = http.createServer((req, res) => {
+export const lab3Handler = (req: http.IncomingMessage, res: http.ServerResponse) => {
+    const originalUrl = req.url || '/';
+    req.url = originalUrl.replace('/labs/lab3', '') || '/';
+
     res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
     res.end(generateOutput());
-});
 
-server.listen(PORT, () => {
-    console.log(`Сервер запущено: http://localhost:${PORT}`);
-});
+    req.url = originalUrl;
+};

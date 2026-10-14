@@ -31,7 +31,7 @@
 
     <script>
         async function fetchAll() {
-            const response = await fetch('/api/rams');
+            const response = await fetch('/labs/lab4/api/rams');
             const data = await response.json();
             renderTable(data);
         }
@@ -40,7 +40,7 @@
             const id = document.getElementById('searchId').value;
             if (!id) return fetchAll();
             
-            const response = await fetch(`/api/rams?id=${id}`);
+            const response = await fetch(`/labs/lab4/api/rams?id=${id}`);
             if (response.status === 404) {
                 document.getElementById('tableBody').innerHTML = '<tr><td colspan="5">Не знайдено</td></tr>';
                 return;
