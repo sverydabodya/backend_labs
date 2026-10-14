@@ -3,15 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>RAM API Клієнт</title>
-    <style>
-        body { font-family: sans-serif; padding: 20px; }
-        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-        th { background-color: #f2f2f2; }
-    </style>
+    <link rel="stylesheet" href="/labs/lab4/css/style.css">
 </head>
 <body>
-    <h1>Каталог ОЗП (Завантаження через API)</h1>
+    <h1>Каталог ОЗП </h1>
     <label>Пошук за ID: <input type="number" id="searchId"></label>
     <button onclick="fetchData()">Шукати</button>
     <button onclick="fetchAll()">Показати всі</button>
@@ -29,43 +24,6 @@
         <tbody id="tableBody"></tbody>
     </table>
 
-    <script>
-        async function fetchAll() {
-            const response = await fetch('/labs/lab4/api/rams');
-            const data = await response.json();
-            renderTable(data);
-        }
-
-        async function fetchData() {
-            const id = document.getElementById('searchId').value;
-            if (!id) return fetchAll();
-            
-            const response = await fetch(`/labs/lab4/api/rams?id=${id}`);
-            if (response.status === 404) {
-                document.getElementById('tableBody').innerHTML = '<tr><td colspan="5">Не знайдено</td></tr>';
-                return;
-            }
-            const data = await response.json();
-            renderTable([data]);
-        }
-
-        function renderTable(items) {
-            const tbody = document.getElementById('tableBody');
-            tbody.innerHTML = '';
-            items.forEach(item => {
-                tbody.innerHTML += `
-                    <tr>
-                        <td>${item.id}</td>
-                        <td>${item.modelName}</td>
-                        <td>${item.capacityGb}</td>
-                        <td>${item.price}</td>
-                        <td>${item.manufacturer.name} (${item.manufacturer.country})</td>
-                    </tr>
-                `;
-            });
-        }
-
-        window.onload = fetchAll;
-    </script>
+    <script src="/labs/lab4/js/script.js"></script>
 </body>
 </html>

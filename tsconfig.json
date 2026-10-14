@@ -1,20 +1,20 @@
 {
   "compilerOptions": {
-    "target": "ES2022",                                // Сучасний стандарт JavaScript
-    "module": "CommonJS",                              // Модульна система для Node.js
-    "moduleResolution": "node",                        // Правильний алгоритм пошуку модулів для Node.js
-    "rootDir": "./src",                                // Папка з вихідним кодом TypeScript
-    "outDir": "./dist",                                // Папка для скомпільованого JavaScript
-    "strict": true,                                    // Сувора перевірка типів
-    "esModuleInterop": true,                           // Сумісність імпортів CommonJS та ES Modules
-    "skipLibCheck": true,                              // Пришвидшує компіляцію, пропускаючи перевірку типів у бібліотеках (node_modules)
-    "forceConsistentCasingInFileNames": true           // Запобігає помилкам регістру у назвах файлів (важливо для Windows/Linux)
+    "target": "ES2022",                               
+    "module": "CommonJS",                             
+    "moduleResolution": "node",                       
+    "rootDir": "./src",                                
+    "outDir": "./dist",                                
+    "strict": true,                                   
+    "esModuleInterop": true,                           
+    "skipLibCheck": true,                              
+    "forceConsistentCasingInFileNames": true          
   },
   "include": [
-    "src/**/*"                                         // Вказуємо, що компілювати треба лише файли з папки src
+    "src/**/*"                                        
   ],
   "exclude": [
-    "node_modules",                                    // Виключаємо залежності з компіляції
-    "dist"                                             // Виключаємо папку з готовим білдом
+    "node_modules",                                    
+    "dist"                                             
   ]
 }

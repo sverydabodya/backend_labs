@@ -1,7 +1,7 @@
 import * as http from 'http';
 import * as fs from 'fs';
 import * as path from 'path';
-import { RamRepository } from './bootstrap';
+import { RamRepository } from './repositories/RamRepository';
 
 const repo = new RamRepository();
 
