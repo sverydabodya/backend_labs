@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>RAM API Клієнт</title>
+    <link rel="stylesheet" href="/labs/lab4/css/style.css">
+</head>
+<body>
+    <h1>Каталог ОЗП </h1>
+    <label>Пошук за ID: <input type="number" id="searchId"></label>
+    <button onclick="fetchData()">Шукати</button>
+    <button onclick="fetchAll()">Показати всі</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Модель</th>
+                <th>Об'єм (ГБ)</th>
+                <th>Ціна (грн)</th>
+                <th>Виробник</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+    </table>
+
+    <script src="/labs/lab4/js/script.js"></script>
+</body>
+</html>

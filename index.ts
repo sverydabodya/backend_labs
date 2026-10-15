@@ -4,7 +4,7 @@ import * as path from 'path';
 
 import { lab3Handler } from './lab3/src/server';
 import { lab4Handler } from './lab4/src/api';
-// import { lab5Handler } from './lab5/src/server';
+import { lab5Handler } from './lab5/src/server';
 
 const PORT = process.env.PORT || 3000;
 
@@ -14,6 +14,8 @@ const MIME_TYPES: Record<string, string> = {
     '.jpg': 'image/jpeg',
     '.jpeg': 'image/jpeg',
     '.png': 'image/png',
+    '.gif': 'image/gif',
+    '.webp': 'image/webp',
     '.svg': 'image/svg+xml'
 };
 
@@ -45,6 +47,10 @@ const server = http.createServer((req: http.IncomingMessage, res: http.ServerRes
     
     if (url.startsWith('/labs/lab4')) {
         return lab4Handler(req, res);
+    }
+
+    if (url.startsWith('/labs/lab5')) {
+        return lab5Handler(req, res);
     }
 
     if (url === '/') {
